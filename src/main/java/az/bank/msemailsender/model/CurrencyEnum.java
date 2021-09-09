@@ -1,7 +1,15 @@
 package az.bank.msemailsender.model;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum CurrencyEnum{
-    AZN, USD, RUB, EUR
+import java.io.Serializable;
+import java.util.Locale;
+
+public enum CurrencyEnum implements Serializable {
+    AZN, USD, RUB, EUR;
+
+    @JsonValue
+    public String toLower() {
+        return this.toString().toLowerCase(Locale.ENGLISH);
+    }
 }
