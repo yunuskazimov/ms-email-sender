@@ -1,6 +1,5 @@
 package az.bank.msemailsender.model;
 
-
 import az.bank.msemailsender.model.customerModel.CustomerApiDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 
 import java.io.Serializable;
 import java.util.List;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

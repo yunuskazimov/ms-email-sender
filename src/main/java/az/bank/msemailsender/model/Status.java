@@ -1,5 +1,4 @@
 package az.bank.msemailsender.model;
-
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import java.util.Locale;
