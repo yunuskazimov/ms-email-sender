@@ -9,14 +9,14 @@ import org.springframework.context.annotation.Configuration;
 
 import java.io.Serializable;
 import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Configuration
-public class MailDto implements Serializable {
+public class MailDtoAccount implements Serializable {
     private String text;
-    private String username;
-    private String password;
-    private String email;
+    private List<AccountDto> accountDtos;
+    private CustomerApiDto customerDto;
 }
