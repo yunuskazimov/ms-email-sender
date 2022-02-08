@@ -18,5 +18,5 @@ public class CustomerApiDto {
     private String lastName;
     private TitleType title;
     private LocalDate birthDate;
-    private Map<ContactType,String> contacts;
+    private Map<ContactType, String> contacts;
 }
