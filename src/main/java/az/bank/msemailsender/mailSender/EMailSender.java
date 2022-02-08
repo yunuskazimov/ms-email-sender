@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class EMailSender {
-    private EmailSenderService senderService;
+    private final EmailSenderService senderService;
 
     public EMailSender(EmailSenderService senderService) {
         this.senderService = senderService;

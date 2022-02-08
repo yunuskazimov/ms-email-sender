@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-email-sender-deployment
+  labels:
+    app: ms-email-sender
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-email-sender
+  template:
+    metadata:
+      labels:
+        app: ms-email-sender
+    spec:
+      containers:
+        - env:
+            - name: EMAIL_HOST
+              valueFrom:
+                secretKeyRef:
+                  key: EMAIL_HOST
+                  name: ms.auth.secrets
+            - name: EMAIL_PORT
+              valueFrom:
+                secretKeyRef:
+                  key: EMAIL_PORT
+                  name: ms.auth.secrets
+            - name: EMAIL_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: EMAIL_USERNAME
+                  name: ms.auth.secrets
+            - name: EMAIL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: EMAIL_PASSWORD
+                  name: ms.auth.secrets
+            - name: RABBIT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: RABBIT_PASSWORD
+                  name: ms.auth.secrets
+            - name: RABBIT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: RABBIT_USERNAME
+                  name: ms.auth.secrets
+            - name: RABBIT_ADDRESS
+              valueFrom:
+                secretKeyRef:
+                  key: RABBIT_ADDRESS
+                  name: ms.auth.secrets
+            - name: DB_MS_EMAIL_PORT
+              valueFrom:
+                secretKeyRef:
+                  key: DB_MS_EMAIL_PORT
+                  name: ms.auth.secrets
+          name: ms-email-sender
+          image: yunuskazimov94/ms-email-sender
+          ports:
+            - containerPort: 8054
+              protocol: TCP
+#          readinessProbe:
+#            httpGet:
+#              path: /readiness
+#              port: 8090
+#            initialDelaySeconds: 45
+#            periodSeconds: 15
+#          livenessProbe:
+#            httpGet:
+#              path: /liveness
+#              port: 8090
+#            initialDelaySeconds: 45
+#            periodSeconds: 15

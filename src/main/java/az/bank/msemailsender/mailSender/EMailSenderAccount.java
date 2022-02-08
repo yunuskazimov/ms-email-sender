@@ -1,11 +1,6 @@
 package az.bank.msemailsender.mailSender;
 
 
-import az.bank.msemailsender.model.MailDto;
-import az.bank.msemailsender.model.customerModel.ContactType;
-import az.bank.msemailsender.service.EmailSenderService;
-import org.springframework.stereotype.Component;
-
 //@Component
 public class EMailSenderAccount {
 //    private EmailSenderService senderService;
@@ -54,5 +49,5 @@ public class EMailSenderAccount {
 //                 "Account Report Service",
 //                 dto.getText());
 //     }
-  //  }
+    //  }
 }
